@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { supabase } from '@/utils/supabase'
 import Link from 'next/link'
 import TaskCard from '@/app/components/TaskCard'
