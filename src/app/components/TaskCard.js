@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import MarkDoneButton from '@/app/components/MarkDoneButton'
 
 const statusLabel = {
   pending: 'Nevyřízeno',
@@ -37,6 +38,7 @@ export default function TaskCard({ task }) {
         <Link href={`/tasks/${task.id}/edit`} className="btn-secondary">
           Upravit
         </Link>
+        {task.status !== 'done' && <MarkDoneButton id={task.id} />}
       </div>
     </div>
   )

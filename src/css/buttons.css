@@ -51,3 +51,20 @@
 .btn-danger:hover {
   background: #dc2626;
 }
+
+.btn-done {
+  display: inline-block;
+  background: #16a34a;
+  color: #fff;
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.375rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-done:hover {
+  background: #15803d;
+}
