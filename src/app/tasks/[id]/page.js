@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import { formatDate } from '@/utils/format'
 import Link from 'next/link'
 import { supabase } from '@/utils/supabase'
 import DeleteButton from '@/app/components/DeleteButton'
@@ -34,7 +35,7 @@ export default async function TaskDetailPage({ params }) {
       )}
 
       {task.due_date && (
-        <p className="detail-due">Termín: {task.due_date}</p>
+        <p className="detail-due">Termín: {formatDate(task.due_date)}</p>
       )}
 
       <div className="detail-actions">

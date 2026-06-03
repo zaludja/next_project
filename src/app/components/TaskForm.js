@@ -1,9 +1,11 @@
 'use client'
 
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useRouter } from 'next/navigation'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 import { supabase } from '@/utils/supabase'
 
 const schema = z.object({
@@ -16,7 +18,7 @@ const schema = z.object({
 export default function TaskForm({ defaultValues }) {
   const router = useRouter()
 
-  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+  const { register, handleSubmit, control, formState: { errors, isSubmitting } } = useForm({
     resolver: zodResolver(schema),
     defaultValues: defaultValues ?? {
       title: '',
@@ -60,11 +62,23 @@ export default function TaskForm({ defaultValues }) {
 
       <div className="form-group">
         <label htmlFor="due_date">Termín</label>
-        <input id="due_date" type="date" {...register('due_date')} />
+        <Controller
+          name="due_date"
+          control={control}
+          render={({ field }) => (
+            <DatePicker
+              id="due_date"
+              selected={field.value ? new Date(field.value) : null}
+              onChange={(date) => field.onChange(date ? date.toISOString().split('T')[0] : '')}
+              dateFormat="dd.MM.yyyy"
+              placeholderText="Vyberte datum"
+            />
+          )}
+        />
       </div>
 
       <div className="form-actions">
-        <button type="button" className="btn-secondary" onClick={() => router.back()}>
+        <button type="button" className="btn-secondary" onClick={() => router.push('/tasks')}>
           Zrušit
         </button>
         <button type="submit" className="btn-primary" disabled={isSubmitting}>

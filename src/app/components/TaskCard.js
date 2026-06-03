@@ -1,5 +1,7 @@
 import Link from 'next/link'
+import { formatDate } from '@/utils/format'
 import MarkDoneButton from '@/app/components/MarkDoneButton'
+import DeleteButton from '@/app/components/DeleteButton'
 
 const statusLabel = {
   pending: 'Nevyřízeno',
@@ -28,17 +30,17 @@ export default function TaskCard({ task }) {
       )}
 
       {task.due_date && (
-        <p className="task-card__due">Termín: {task.due_date}</p>
+        <p className="task-card__due">Termín: {formatDate(task.due_date)}</p>
       )}
 
       <div className="task-card__actions">
-        <Link href={`/tasks/${task.id}`} className="btn-secondary">
-          Detail
-        </Link>
         <Link href={`/tasks/${task.id}/edit`} className="btn-secondary">
           Upravit
         </Link>
-        {task.status !== 'done' && <MarkDoneButton id={task.id} />}
+        {task.status !== 'done'
+          ? <MarkDoneButton id={task.id} />
+          : <DeleteButton id={task.id} />
+        }
       </div>
     </div>
   )
