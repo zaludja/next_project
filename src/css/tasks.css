@@ -15,10 +15,11 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
+  color: var(--color-text);
 }
 
 .tasks-empty {
-  color: #6b7280;
+  color: var(--color-text-muted);
   text-align: center;
 }
 
@@ -38,17 +39,18 @@
 .detail-header h1 {
   font-size: 1.5rem;
   font-weight: 700;
+  color: var(--color-text);
 }
 
 .detail-description {
-  color: #4b5563;
+  color: var(--color-text-muted);
   margin-bottom: 0.75rem;
   line-height: 1.6;
 }
 
 .detail-due {
   font-size: 0.9rem;
-  color: #9ca3af;
+  color: var(--color-text-muted);
   margin-bottom: 1.5rem;
 }
 
@@ -64,11 +66,11 @@
 }
 
 .task-card {
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-border);
   border-radius: 0.5rem;
   padding: 1rem 1.25rem;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  background: var(--color-card);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.3);
 }
 
 .task-card__header {
@@ -81,17 +83,18 @@
 .task-card__title {
   font-size: 1.1rem;
   font-weight: 600;
+  color: var(--color-text);
 }
 
 .task-card__description {
-  color: #6b7280;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
 
 .task-card__due {
   font-size: 0.8rem;
-  color: #9ca3af;
+  color: var(--color-text-muted);
   margin-bottom: 0.75rem;
 }
 
@@ -108,16 +111,17 @@
 }
 
 .status-pending {
-  background: #fef9c3;
-  color: #854d0e;
+  background: #2a2015;
+  color: var(--color-muted);
 }
 
 .status-in-progress {
-  background: #dbeafe;
-  color: #1e40af;
+  background: #3a1a00;
+  color: var(--color-warm);
 }
 
 .status-done {
-  background: #dcfce7;
-  color: #166534;
+  background: var(--color-card);
+  color: var(--color-accent);
+  border: 1px solid var(--color-border);
 }

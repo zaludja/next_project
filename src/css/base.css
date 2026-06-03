@@ -1,13 +1,13 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-bg: #0d1a0f;
+  --color-card: #1a3d1a;
+  --color-border: #2a5a2a;
+  --color-accent: #39ff14;
+  --color-accent-text: #052005;
+  --color-warm: #ff821e;
+  --color-muted: #e4cea5;
+  --color-text: #d4f5d4;
+  --color-text-muted: #4a7a4a;
 }
 
 html {
@@ -18,8 +18,8 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
