@@ -8,9 +8,7 @@ export default function Sidebar({ tasks }) {
 
   return (
     <aside className={`sidebar ${open ? 'sidebar--open' : 'sidebar--closed'}`}>
-      <button className="sidebar__toggle" onClick={() => setOpen(!open)}>
-        {open ? '◀' : '▶'}
-      </button>
+      <button className="sidebar__toggle" onClick={() => setOpen(!open)} />
 
       {open && (
         <>

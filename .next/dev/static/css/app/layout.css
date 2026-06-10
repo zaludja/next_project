@@ -968,8 +968,14 @@ body {
   transition: color 0.15s;
   align-self: flex-end;
 }
+.sidebar__toggle::before {
+  content: '◀';
+}
 .sidebar--closed .sidebar__toggle {
   align-self: center;
+}
+.sidebar--closed .sidebar__toggle::before {
+  content: '▶';
 }
 .sidebar__toggle:hover {
   color: var(--color-accent);
@@ -1141,6 +1147,53 @@ body {
   color: var(--color-accent);
   border: 1px solid var(--color-border);
 }
+@media (max-width: 768px) {
+  .tasks-layout {
+    flex-direction: column;
+  }
+  .tasks-page {
+    order: 1;
+    padding: 1rem;
+  }
+  .sidebar {
+    order: 2;
+    border-right: none;
+    border-top: 1px solid var(--color-border);
+    border-bottom: none;
+    width: 100% !important;
+    min-width: unset !important;
+    padding: 0.75rem 1rem !important;
+    align-items: unset;
+  }
+  .sidebar__toggle {
+    align-self: flex-end;
+  }
+  .sidebar--closed .sidebar__toggle {
+    align-self: flex-end;
+  }
+  .sidebar__toggle::before {
+    content: '▼';
+  }
+  .sidebar--closed .sidebar__toggle::before {
+    content: '▲';
+  }
+  .sidebar__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .sidebar__item {
+    width: auto;
+  }
+  .task-card {
+    width: 100%;
+  }
+  .detail-page {
+    padding: 1rem;
+  }
+  .detail-actions {
+    flex-wrap: wrap;
+  }
+}
 .form-page {
   max-width: 36rem;
   margin: 0 auto;
@@ -1256,5 +1309,17 @@ body {
   gap: 0.75rem;
   justify-content: flex-end;
   margin-top: 0.5rem;
+}
+@media (max-width: 768px) {
+  .form-page {
+    padding: 1rem;
+  }
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+  .form-actions .btn-primary, .form-actions .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
 }
 
